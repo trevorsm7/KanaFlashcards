@@ -1,0 +1,10 @@
+Convert to katakana
+た null タ sound/ta.wav
+Convert to katakana
+ち null チ sound/chi.wav
+Convert to katakana
+つ null ツ sound/tsu.wav
+Convert to katakana
+て null テ sound/te.wav
+Convert to katakana
+と null ト sound/to.wav

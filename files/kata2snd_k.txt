@@ -1,0 +1,10 @@
+Sound this katakana
+カ null ka sound/ka.wav
+Sound this katakana
+キ null ki sound/ki.wav
+Sound this katakana
+ク null ku sound/ku.wav
+Sound this katakana
+ケ null ke sound/ke.wav
+Sound this katakana
+コ null ko sound/ko.wav

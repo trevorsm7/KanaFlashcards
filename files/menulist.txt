@@ -1,0 +1,12 @@
+Sound to Hiragana
+files/snd2hira.txt
+Sound to Katakana
+files/snd2kata.txt
+Hiragana to Sound
+files/hira2snd.txt
+Katakana to Sound
+files/kata2snd.txt
+Hiragana to Katakana
+files/hira2kata.txt
+Katakana to Hiragana
+files/kata2hira.txt

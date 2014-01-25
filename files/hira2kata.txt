@@ -1,0 +1,10 @@
+Vowels
+files/hira2kata_.txt
+K+Vowel
+files/hira2kata_k.txt
+S+Vowel
+files/hira2kata_s.txt
+T+Vowel
+files/hira2kata_t.txt
+N+Vowel
+files/hira2kata_n.txt

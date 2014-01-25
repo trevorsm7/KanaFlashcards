@@ -1,0 +1,10 @@
+Convert to hiragana
+ナ null な sound/na.wav
+Convert to hiragana
+ニ null に sound/ni.wav
+Convert to hiragana
+ヌ null ぬ sound/nu.wav
+Convert to hiragana
+ネ null ね sound/ne.wav
+Convert to hiragana
+ノ null の sound/no.wav

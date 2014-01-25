@@ -1,0 +1,10 @@
+Spell in katakana
+a sound/a.wav ア null
+Spell in katakana
+i sound/i.wav イ null
+Spell in katakana
+u sound/u.wav ウ null
+Spell in katakana
+e sound/e.wav エ null
+Spell in katakana
+o sound/o.wav オ null

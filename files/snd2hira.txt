@@ -1,0 +1,10 @@
+Vowels
+files/snd2hira_.txt
+K+Vowel
+files/snd2hira_k.txt
+S+Vowel
+files/snd2hira_s.txt
+T+Vowel
+files/snd2hira_t.txt
+N+Vowel
+files/snd2hira_n.txt

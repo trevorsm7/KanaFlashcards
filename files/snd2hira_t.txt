@@ -1,0 +1,10 @@
+Spell in hiragana
+ta sound/ta.wav た null
+Spell in hiragana
+chi sound/chi.wav ち null
+Spell in hiragana
+tsu sound/tsu.wav つ null
+Spell in hiragana
+te sound/te.wav て null
+Spell in hiragana
+to sound/to.wav と null

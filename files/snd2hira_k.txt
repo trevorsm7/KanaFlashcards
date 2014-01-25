@@ -1,0 +1,10 @@
+Spell in hiragana
+ka sound/ka.wav か null
+Spell in hiragana
+ki sound/ki.wav き null
+Spell in hiragana
+ku sound/ku.wav く null
+Spell in hiragana
+ke sound/ke.wav け null
+Spell in hiragana
+ko sound/ko.wav こ null

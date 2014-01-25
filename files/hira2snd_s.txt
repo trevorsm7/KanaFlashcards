@@ -1,0 +1,10 @@
+Sound this hiragana
+さ null sa sound/sa.wav
+Sound this hiragana
+し null shi sound/shi.wav
+Sound this hiragana
+す null su sound/su.wav
+Sound this hiragana
+せ null se sound/se.wav
+Sound this hiragana
+そ null so sound/so.wav

@@ -1,0 +1,10 @@
+Vowels
+files/kata2snd_.txt
+K+Vowel
+files/kata2snd_k.txt
+S+Vowel
+files/kata2snd_s.txt
+T+Vowel
+files/kata2snd_t.txt
+N+Vowel
+files/kata2snd_n.txt
