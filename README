@@ -1,0 +1,30 @@
+This is a simple flashcard program that I wrote to help myself learn hiragana and katakana.
+
+Data is loaded from the files/ directory in the jar. A menu item is created for each data file loaded in this way. The file format is specialized for organizing the hiragana and katakana in a compact way.
+
+The first line of the file is the name given to the menu item. Each subsequent line has the format [type] [hiragana] [katakana] [romaji] [audio]
+
+[type] is one of:
+n - A normal character.
+d - A character with a dakuten or handakuten.
+y - A youon character without dakuten.
+dy - A youon character with a dakuten or handakuten.
+
+[hiragana], [katakana], and [romaji] are corresponding unicode strings.
+
+[audio] is a path to an audio file in the jar.
+
+The flashcards are generated in three groups, which are selected by the Hiragana and Katakana menu items:
+- Hiragana to romaji and romaji to hiragana, when hiragana is selected.
+- Katakana to romaji and romaji to katakana, when katakana is selected.
+- Hiragana to katakana and katakana to romaji, plus the above, when both are selected.
+
+These are further broken down into four subgroups, selected by the Dakuten and Youon menu items:
+- Characters with [type] n, when neither are selected.
+- Characters with [type] n or d, when Dakuten is selected.
+- Characters with [type] n or y, when Youon is selected.
+- Characters with [type] n, d, y, or dy, when both are selected.
+
+The initial commit on github may also be of interest since it uses a more generic file format, allowing for arbitrary question/answer pairs to be specified. I abandoned this format because it was too cumbersome and repetitive for my needs.
+
+The audio clips were borrowed from kana101.com

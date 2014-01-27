@@ -44,6 +44,7 @@ public class Game extends JPanel implements ActionListener
     private Card card;
     private Clip sound;
     private boolean showQuestion;
+    private boolean menuChanged;
     
     private JButton buttonReplay;
     private JButton buttonNext;
@@ -57,7 +58,8 @@ public class Game extends JPanel implements ActionListener
         deck = null;
         card = null;
         sound = null;
-        showQuestion = true;
+        showQuestion = false;
+        menuChanged = true;
         
         // Create menu.
         menu = new Menu();
@@ -102,21 +104,24 @@ public class Game extends JPanel implements ActionListener
         buttonNext = new JButton("Next");
         buttonNext.setActionCommand(COMMAND_NEXT);
         buttonNext.addActionListener(this);
-        buttonNext.setEnabled(false);
+        buttonNext.setEnabled(menu.hasSelection()); // enable if there are available cards
         c.gridx = 1;
         c.gridy = 2;
         c.weighty = 0.0;
         add(buttonNext, c);
-        
-        // Load the initial deck and get the first card.
-        deck = menu.getSelectedDecks();
-        getNextCard();
     }
     
     public Menu getMenu() {return menu;}
     
     public void getNextCard()
     {
+        // Update deck if the settings have changed.
+        if (menuChanged)
+        {
+            menuChanged = false;
+            deck = menu.getSelectedDecks();
+        }
+        
         // Deck is empty, clear the screen.
         if (deck.isEmpty())
         {
@@ -170,7 +175,7 @@ public class Game extends JPanel implements ActionListener
         
         if (command.equals(COMMAND_NEXT))
         {
-            if (showQuestion)
+            if (showQuestion && card != null)
             {
                 // Display the answer.
                 showQuestion = false;
@@ -180,7 +185,7 @@ public class Game extends JPanel implements ActionListener
             }
             else
             {
-                // Answer is already displayed, get new card.
+                // No card or answer is being displayed, get new card.
                 getNextCard();
             }
         }
@@ -196,11 +201,11 @@ public class Game extends JPanel implements ActionListener
         }
         else if (command.equals(COMMAND_MENU))
         {
-            deck = menu.getSelectedDecks();
+            menuChanged = true;
             
-            // If no card is on screen, display one.
-            if (card == null)
-                getNextCard();
+            // If the screen is blank, enable Next only if there are available cards.
+            if (!showQuestion && card == null)
+                buttonNext.setEnabled(menu.hasSelection());
         }
     }
 }

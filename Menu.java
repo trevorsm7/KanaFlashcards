@@ -107,6 +107,24 @@ public class Menu extends JMenuBar
         }
     }
     
+    public boolean hasSelection()
+    {
+        // Return false if neither syllabary is selected.
+        if (!hiragana.getState() && !katakana.getState())
+            return false;
+        
+        // Return true if all sets is selected.
+        if (allSets.getState())
+            return true;
+        
+        // Return true if any of the sets are selected.
+        for (MenuItem item : items)
+            if (item.getState())
+                return true;
+        
+        return false;
+    }
+    
     public Deck getSelectedDecks()
     {
         Deck deck = new Deck();
