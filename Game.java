@@ -107,6 +107,10 @@ public class Game extends JPanel implements ActionListener
         c.gridy = 2;
         c.weighty = 0.0;
         add(buttonNext, c);
+        
+        // Load the initial deck and get the first card.
+        deck = menu.getSelectedDecks();
+        getNextCard();
     }
     
     public Menu getMenu() {return menu;}

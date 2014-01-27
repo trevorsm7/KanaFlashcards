@@ -25,6 +25,7 @@ public class Menu extends JMenuBar
         hiragana = new JCheckBoxMenuItem("Hiragana");
         hiragana.setActionCommand(Game.COMMAND_MENU);
         hiragana.addActionListener(listener);
+        hiragana.setState(true); // set by default
         menu.add(hiragana);
         
         // Add "Katakana" menu item.
@@ -33,16 +34,21 @@ public class Menu extends JMenuBar
         katakana.addActionListener(listener);
         menu.add(katakana);
         
+        // Separate Hiragana/Katakana and Dakuten/Youon options.
+        menu.addSeparator();
+        
         // Add "Dakuten" menu item.
         dakuten = new JCheckBoxMenuItem("Dakuten");
         dakuten.setActionCommand(Game.COMMAND_MENU);
         dakuten.addActionListener(listener);
+        dakuten.setState(true); // set by default
         menu.add(dakuten);
         
         // Add "Youon" menu item.
         youon = new JCheckBoxMenuItem("Youon");
         youon.setActionCommand(Game.COMMAND_MENU);
         youon.addActionListener(listener);
+        youon.setState(true); // set by default
         menu.add(youon);
         
         // Add separator before character sets.
@@ -52,6 +58,7 @@ public class Menu extends JMenuBar
         allSets = new JCheckBoxMenuItem("All Sets");
         allSets.setActionCommand(Game.COMMAND_MENU);
         allSets.addActionListener(listener);
+        allSets.setState(true); // set by default
         menu.add(allSets);
         
         items = new ArrayList<MenuItem>();
