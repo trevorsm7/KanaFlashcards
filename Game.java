@@ -7,8 +7,11 @@ import java.io.*;
 
 public class Game extends JPanel implements ActionListener
 {
+    // The default dimensions of the application window.
     public static final int DEFAULT_WIDTH = 480;
     public static final int DEFAULT_HEIGHT = 320;
+    
+    // String constants used for UI event names.
     public static final String COMMAND_REPLAY = "replay";
     public static final String COMMAND_NEXT = "next";
     public static final String COMMAND_MENU = "menu";
@@ -58,8 +61,7 @@ public class Game extends JPanel implements ActionListener
         
         // Create menu.
         menu = new Menu();
-        //menu.loadMenu("files/menulist.txt", this);
-        menu.loadMenu("files/menulist.txt", this);
+        menu.loadMenu(this);
         
         // Set up grid bag layout.
         GridBagConstraints c = new GridBagConstraints();
@@ -67,6 +69,7 @@ public class Game extends JPanel implements ActionListener
         c.fill = GridBagConstraints.BOTH;
         c.weightx = 1.0;
         
+        // Create a label for the description of the current card.
         labelQuestion = new JLabel("", JLabel.CENTER);
         labelQuestion.setFont(new Font("Serif", Font.PLAIN, 24));
         c.gridx = 0;
@@ -75,6 +78,7 @@ public class Game extends JPanel implements ActionListener
         c.weighty = 0.0;
         add(labelQuestion, c);
         
+        // Create a label for the symbol to display on the card.
         labelSymbol = new JLabel("", JLabel.CENTER);
         labelSymbol.setFont(new Font("Serif", Font.PLAIN, 160));
         c.gridx = 0;
@@ -83,6 +87,7 @@ public class Game extends JPanel implements ActionListener
         c.weighty = 1.0;
         add(labelSymbol, c);
         
+        // Create a button to replay the active audio clip.
         buttonReplay = new JButton("Replay");
         buttonReplay.setActionCommand(COMMAND_REPLAY);
         buttonReplay.addActionListener(this);
@@ -93,6 +98,7 @@ public class Game extends JPanel implements ActionListener
         c.weighty = 0.0;
         add(buttonReplay, c);
         
+        // Create a button to flip to the answer or to draw a new card.
         buttonNext = new JButton("Next");
         buttonNext.setActionCommand(COMMAND_NEXT);
         buttonNext.addActionListener(this);
@@ -133,7 +139,8 @@ public class Game extends JPanel implements ActionListener
         {
             try
             {
-                AudioInputStream audioIn = AudioSystem.getAudioInputStream(Game.class.getResource(filename));
+                // Load the audio clip and play it.
+                AudioInputStream audioIn = AudioSystem.getAudioInputStream(getClass().getResource(filename));
                 sound = AudioSystem.getClip();
                 sound.open(audioIn);
                 sound.start();
@@ -177,6 +184,7 @@ public class Game extends JPanel implements ActionListener
         {
             if (sound != null)
             {
+                // Restart the audio clip.
                 sound.stop();
                 sound.setFramePosition(0);
                 sound.start();

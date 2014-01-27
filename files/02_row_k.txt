@@ -1,0 +1,6 @@
+K+Vowel
+か カ ka sound/ka.wav
+き キ ki sound/ki.wav
+く ク ku sound/ku.wav
+け ケ ke sound/ke.wav
+こ コ ko sound/ko.wav

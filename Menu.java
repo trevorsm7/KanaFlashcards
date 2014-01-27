@@ -1,166 +1,88 @@
 import javax.swing.*;
+import java.security.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.zip.*;
 import java.util.*;
+import java.net.*;
 import java.io.*;
 
 public class Menu extends JMenuBar
 {
-    private class MenuItem extends JCheckBoxMenuItem
-    {
-        public Deck deck;
-        
-        public MenuItem(String description)
-        {
-            super(description);
-        }
-    }
+    private JCheckBoxMenuItem hiragana;
+    private JCheckBoxMenuItem katakana;
+    private JCheckBoxMenuItem allSets;
+    private ArrayList<MenuItem> items;
     
-    private class Submenu extends JMenu
+    public void loadMenu(ActionListener listener)
     {
-        MenuItem all;
-        ArrayList<MenuItem> items;
+        JMenu menu = new JMenu("Options");
+        add(menu);
         
-        public Submenu(String description)
-        {
-            super(description);
-        }
+        // Add "Hiragana" menu item.
+        hiragana = new JCheckBoxMenuItem("Hiragana");
+        hiragana.setActionCommand(Game.COMMAND_MENU);
+        hiragana.addActionListener(listener);
+        menu.add(hiragana);
         
-        public void loadSubmenu(String menuFilename, ActionListener listener)
+        // Add "Katakana" menu item.
+        katakana = new JCheckBoxMenuItem("Katakana");
+        katakana.setActionCommand(Game.COMMAND_MENU);
+        katakana.addActionListener(listener);
+        menu.add(katakana);
+        
+        // Add separator before character sets.
+        menu.addSeparator();
+        
+        // Add "All Sets" menu item.
+        allSets = new JCheckBoxMenuItem("All Sets");
+        allSets.setActionCommand(Game.COMMAND_MENU);
+        allSets.addActionListener(listener);
+        menu.add(allSets);
+        
+        items = new ArrayList<MenuItem>();
+        try
         {
-            Scanner scan = null;
-            items = new ArrayList<MenuItem>();
+            // Get the CodeSource object for this class.
+            CodeSource src = getClass().getProtectionDomain().getCodeSource();
             
-            // Add "All" menu item.
-            all = new MenuItem("All");
-            all.deck = new Deck();
-            all.setActionCommand(Game.COMMAND_MENU); // bleh
-            all.addActionListener(listener);
-            add(all);
-            
-            try
+            if (src != null)
             {
-                //scan = new Scanner(new FileReader(menuFilename));
-                scan = new Scanner(getClass().getResourceAsStream(menuFilename), "UTF-8");
+                // Get a ZipInputStream object for the enclosing JAR file.
+                URL jar = src.getLocation();
+                ZipInputStream zip = new ZipInputStream(jar.openStream());
                 
-                while (true)
+                // Iterate over each entry in the JAR file.
+                ZipEntry entry;
+                while((entry = zip.getNextEntry()) != null)
                 {
-                    if (!scan.hasNextLine())
-                        break;
+                    String name = entry.getName();
                     
-                    String description = scan.nextLine();
-                    String filename = scan.nextLine();
-                    
-                    MenuItem item = new MenuItem(description);
-                    item.deck = new Deck();
-                    item.deck.loadDeck(filename);
-                    item.setActionCommand(Game.COMMAND_MENU); // bleh
-                    item.addActionListener(listener);
-                    items.add(item);
-                    add(item);
-                    
-                    // Add items to the "All" deck.
-                    all.deck.addDeck(item.deck);
+                    if (name.startsWith("files/") && name.endsWith(".txt"))
+                    {
+                        // Load character set as a menu item.
+                        MenuItem item = new MenuItem();
+                        item.loadMenuItem(name);
+                        
+                        if (!item.isEmpty())
+                        {
+                            // Add item to menu, if it contains valid data.
+                            item.setActionCommand(Game.COMMAND_MENU);
+                            item.addActionListener(listener);
+                            menu.add(item);
+                            items.add(item);
+                        }
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                ex.printStackTrace();
-                // eh, oh well
-            }
-            finally
-            {
-                if (scan != null)
-                    scan.close();
-            }
-        }
-        
-        /*public boolean hasSelected()
-        {
-            if (all.getState())
-                return true;
-            for (MenuItem item : items)
-                if (item.getState())
-                    return true;
-            
-            return false;
-        }*/
-        
-        public Deck getSelectedDecks()
-        {
-            Deck deck = new Deck();
-            
-            if (all.getState())
-            {
-                deck.addDeck(all.deck);
-                
-                // Grey out other items.
-                for (MenuItem item : items)
-                    item.setEnabled(false);
             }
             else
             {
-                for (MenuItem item : items)
-                {
-                    item.setEnabled(true);
-                    
-                    if (item.getState())
-                        deck.addDeck(item.deck);
-                }
-            }
-            
-            //deck.shuffle();
-            
-            return deck;
-        }
-    }
-    
-    //private ArrayList<MenuItem> items;
-    private ArrayList<Submenu> submenus;
-    
-    public void loadMenu(String menuFilename, ActionListener listener)
-    {
-        Scanner scan = null;
-        submenus = new ArrayList<Submenu>();
-        JMenu menu = new JMenu("Deck");
-        add(menu);
-        
-        try
-        {
-            //scan = new Scanner(new FileReader(menuFilename));
-            scan = new Scanner(getClass().getResourceAsStream(menuFilename), "UTF-8");
-            
-            while (true)
-            {
-                if (!scan.hasNextLine())
-                    break;
-                
-                String description = scan.nextLine();
-                String filename = scan.nextLine();
-                
-                Submenu submenu = new Submenu(description);
-                submenu.loadSubmenu(filename, listener);
-                submenus.add(submenu);
-                menu.add(submenu);
-                
-                /*MenuItem item = new MenuItem(description);
-                item.deck = new Deck();
-                item.deck.loadDeck(filename);
-                item.setActionCommand(Game.COMMAND_MENU); // bleh
-                item.addActionListener(listener);
-                menu.add(item);
-                items.add(item);*/
+                System.out.println("Unable to open jar");
             }
         }
-        catch (Exception ex)
+        catch (IOException ex)
         {
             ex.printStackTrace();
-            // eh, oh well
-        }
-        finally
-        {
-            if (scan != null)
-                scan.close();
         }
     }
     
@@ -168,8 +90,31 @@ public class Menu extends JMenuBar
     {
         Deck deck = new Deck();
         
-        for (Submenu menu : submenus)
-            deck.addDeck(menu.getSelectedDecks());
+        // Get state of Hiragana and Katakana checkboxes.
+        boolean useHiragana = hiragana.getState();
+        boolean useKatakana = katakana.getState();
+        
+        if (allSets.getState())
+        {
+            for (MenuItem item : items)
+            {
+                // Disable item when "All Sets" is selected.
+                item.setEnabled(false);
+                
+                deck.addDeck(item.getDeck(useHiragana, useKatakana));
+            }
+        }
+        else
+        {
+            for (MenuItem item : items)
+            {
+                // Make sure item is enabled since "All Sets" is not selected.
+                item.setEnabled(true);
+                
+                if (item.getState())
+                    deck.addDeck(item.getDeck(useHiragana, useKatakana));
+            }
+        }
         
         deck.shuffle();
         

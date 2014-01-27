@@ -1,0 +1,7 @@
+Y/W+Vowel, N
+や ヤ ya sound/ya.wav
+ゆ ユ yu sound/yu.wav
+よ ヨ yo sound/yo.wav
+わ ワ wa sound/wa.wav
+を ヲ wo sound/wo.wav
+ん ン n sound/n.wav

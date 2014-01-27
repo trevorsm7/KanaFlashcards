@@ -1,0 +1,6 @@
+H+Vowel
+は ハ ha sound/ha.wav
+ひ ヒ hi sound/hi.wav
+ふ フ fu sound/fu.wav
+へ ヘ he sound/he.wav
+ほ ホ ho sound/ho.wav

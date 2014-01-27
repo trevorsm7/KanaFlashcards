@@ -1,0 +1,6 @@
+S+Vowel
+さ サ sa sound/sa.wav
+し シ shi sound/shi.wav
+す ス su sound/su.wav
+せ セ se sound/se.wav
+そ ソ so sound/so.wav

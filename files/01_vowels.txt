@@ -1,0 +1,6 @@
+Vowels
+あ ア a sound/a.wav
+い イ i sound/i.wav
+う ウ u sound/u.wav
+え エ e sound/e.wav
+お オ o sound/o.wav

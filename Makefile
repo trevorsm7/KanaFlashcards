@@ -1,9 +1,9 @@
 JFLAGS = -g
 JARFLAGS = cvfe
-RESOURCES = files sound
+RESOURCES = files/*.txt sound/*.wav
 JARNAME = Flashcards.jar
 MAINCLASS = Game
-CLASSES = Game.java Menu.java Deck.java Card.java
+CLASSES = Game.java Menu.java MenuItem.java Deck.java Card.java
 JC = javac
 JAR = jar
 .SUFFIXES: .java .class .jar

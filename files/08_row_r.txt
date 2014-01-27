@@ -1,0 +1,6 @@
+R+Vowel
+ら ラ ra sound/ra.wav
+り リ ri sound/ri.wav
+る ル ru sound/ru.wav
+れ レ re sound/re.wav
+ろ ロ ro sound/ro.wav

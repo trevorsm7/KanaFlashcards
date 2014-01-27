@@ -1,0 +1,6 @@
+T+Vowel
+た タ ta sound/ta.wav
+ち チ chi sound/chi.wav
+つ ツ tsu sound/tsu.wav
+て テ te sound/te.wav
+と ト to sound/to.wav
