@@ -1,6 +1,9 @@
 N+Vowel
-な ナ na sound/na.wav
-に ニ ni sound/ni.wav
-ぬ ヌ nu sound/nu.wav
-ね ネ ne sound/ne.wav
-の ノ no sound/no.wav
+n な ナ na sound/na.wav
+n に ニ ni sound/ni.wav
+n ぬ ヌ nu sound/nu.wav
+n ね ネ ne sound/ne.wav
+n の ノ no sound/no.wav
+y にゃ ニャ nya sound/nya.wav
+y にゅ にゅ nyu sound/nyu.wav
+y にょ にょ nyo sound/nyo.wav

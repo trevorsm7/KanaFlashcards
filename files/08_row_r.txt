@@ -1,6 +1,9 @@
 R+Vowel
-ら ラ ra sound/ra.wav
-り リ ri sound/ri.wav
-る ル ru sound/ru.wav
-れ レ re sound/re.wav
-ろ ロ ro sound/ro.wav
+n ら ラ ra sound/ra.wav
+n り リ ri sound/ri.wav
+n る ル ru sound/ru.wav
+n れ レ re sound/re.wav
+n ろ ロ ro sound/ro.wav
+y りゃ リャ rya sound/rya.wav
+y りゅ リュ ryu sound/ryu.wav
+y りょ リョ ryo sound/ryo.wav

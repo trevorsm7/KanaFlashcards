@@ -11,6 +11,8 @@ public class Menu extends JMenuBar
 {
     private JCheckBoxMenuItem hiragana;
     private JCheckBoxMenuItem katakana;
+    private JCheckBoxMenuItem dakuten;
+    private JCheckBoxMenuItem youon;
     private JCheckBoxMenuItem allSets;
     private ArrayList<MenuItem> items;
     
@@ -30,6 +32,18 @@ public class Menu extends JMenuBar
         katakana.setActionCommand(Game.COMMAND_MENU);
         katakana.addActionListener(listener);
         menu.add(katakana);
+        
+        // Add "Dakuten" menu item.
+        dakuten = new JCheckBoxMenuItem("Dakuten");
+        dakuten.setActionCommand(Game.COMMAND_MENU);
+        dakuten.addActionListener(listener);
+        menu.add(dakuten);
+        
+        // Add "Youon" menu item.
+        youon = new JCheckBoxMenuItem("Youon");
+        youon.setActionCommand(Game.COMMAND_MENU);
+        youon.addActionListener(listener);
+        menu.add(youon);
         
         // Add separator before character sets.
         menu.addSeparator();
@@ -90,9 +104,11 @@ public class Menu extends JMenuBar
     {
         Deck deck = new Deck();
         
-        // Get state of Hiragana and Katakana checkboxes.
+        // Get state of option checkboxes.
         boolean useHiragana = hiragana.getState();
         boolean useKatakana = katakana.getState();
+        boolean useDakuten = dakuten.getState();
+        boolean useYouon = youon.getState();
         
         if (allSets.getState())
         {
@@ -101,7 +117,7 @@ public class Menu extends JMenuBar
                 // Disable item when "All Sets" is selected.
                 item.setEnabled(false);
                 
-                deck.addDeck(item.getDeck(useHiragana, useKatakana));
+                deck.addDeck(item.getDeck(useHiragana, useKatakana, useDakuten, useYouon));
             }
         }
         else
@@ -112,7 +128,7 @@ public class Menu extends JMenuBar
                 item.setEnabled(true);
                 
                 if (item.getState())
-                    deck.addDeck(item.getDeck(useHiragana, useKatakana));
+                    deck.addDeck(item.getDeck(useHiragana, useKatakana, useDakuten, useYouon));
             }
         }
         

@@ -1,6 +1,17 @@
 S+Vowel
-さ サ sa sound/sa.wav
-し シ shi sound/shi.wav
-す ス su sound/su.wav
-せ セ se sound/se.wav
-そ ソ so sound/so.wav
+n さ サ sa sound/sa.wav
+n し シ shi sound/shi.wav
+n す ス su sound/su.wav
+n せ セ se sound/se.wav
+n そ ソ so sound/so.wav
+d ざ ザ za sound/za.wav
+d じ ジ ji(shi) sound/ji.wav
+d ず ズ zu(su) sound/zu.wav
+d ぜ ゼ ze sound/ze.wav
+d ぞ ゾ zo sound/zo.wav
+y しゃ シャ sha sound/sha.wav
+y しゅ シュ shu sound/shu.wav
+y しょ ショ sho sound/sho.wav
+dy じゃ ジャ ja sound/ja.wav
+dy じゅ ジュ ju sound/ju.wav
+dy じょ ジョ jo sound/jo.wav

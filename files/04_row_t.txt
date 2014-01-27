@@ -1,6 +1,11 @@
 T+Vowel
-た タ ta sound/ta.wav
-ち チ chi sound/chi.wav
-つ ツ tsu sound/tsu.wav
-て テ te sound/te.wav
-と ト to sound/to.wav
+n た タ ta sound/ta.wav
+n ち チ chi sound/chi.wav
+n つ ツ tsu sound/tsu.wav
+n て テ te sound/te.wav
+n と ト to sound/to.wav
+d だ ダ da sound/da.wav
+d ぢ ヂ ji(chi) sound/ji.wav
+d づ ヅ zu(tsu) sound/zu.wav
+d で デ de sound/de.wav
+d ど ド do sound/do.wav

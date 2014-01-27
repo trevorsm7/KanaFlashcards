@@ -1,6 +1,17 @@
 K+Vowel
-か カ ka sound/ka.wav
-き キ ki sound/ki.wav
-く ク ku sound/ku.wav
-け ケ ke sound/ke.wav
-こ コ ko sound/ko.wav
+n か カ ka sound/ka.wav
+n き キ ki sound/ki.wav
+n く ク ku sound/ku.wav
+n け ケ ke sound/ke.wav
+n こ コ ko sound/ko.wav
+d が ガ ga sound/ga.wav
+d ぎ ギ gi sound/gi.wav
+d ぐ グ gu sound/gu.wav
+d げ ゲ ge sound/ge.wav
+d ご ゴ go sound/go.wav
+y きゃ キャ kya sound/kya.wav
+y きゅ キュ kyu sound/kyu.wav
+y きょ キョ kyo sound/kyo.wav
+dy ぎゃ ギャ gya sound/gya.wav
+dy ぎゅ ギュ gyu sound/gyu.wav
+dy ぎょ ギョ gyo sound/gyo.wav

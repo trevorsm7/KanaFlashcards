@@ -1,6 +1,25 @@
 H+Vowel
-は ハ ha sound/ha.wav
-ひ ヒ hi sound/hi.wav
-ふ フ fu sound/fu.wav
-へ ヘ he sound/he.wav
-ほ ホ ho sound/ho.wav
+n は ハ ha sound/ha.wav
+n ひ ヒ hi sound/hi.wav
+n ふ フ fu sound/fu.wav
+n へ ヘ he sound/he.wav
+n ほ ホ ho sound/ho.wav
+d ば バ ba sound/ba.wav
+d び ビ bi sound/bi.wav
+d ぶ ブ bu sound/bu.wav
+d べ ベ be sound/be.wav
+d ぼ ボ bo sound/bo.wav
+d ぱ パ pa sound/pa.wav
+d ぴ ピ pi sound/pi.wav
+d ぷ プ pu sound/pu.wav
+d ぺ ペ pe sound/pe.wav
+d ぽ ポ po sound/po.wav
+y ひゃ ヒャ hya sound/hya.wav
+y ひゅ ヒュ hyu sound/hyu.wav
+y ひょ ヒョ hyo sound/hyo.wav
+dy びゃ ビャ bya sound/bya.wav
+dy びゅ ビュ byu sound/byu.wav
+dy びょ ビョ byo sound/byo.wav
+dy ぴゃ ピャ pya sound/pya.wav
+dy ぴゅ ピュ pyu sound/pyu.wav
+dy ぴょ ピョ pyo sound/pyo.wav

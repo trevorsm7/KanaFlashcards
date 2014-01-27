@@ -1,6 +1,9 @@
 M+Vowel
-ま マ ma sound/ma.wav
-み ミ mi sound/mi.wav
-む ム mu sound/mu.wav
-め メ me sound/me.wav
-も モ mo sound/mo.wav
+n ま マ ma sound/ma.wav
+n み ミ mi sound/mi.wav
+n む ム mu sound/mu.wav
+n め メ me sound/me.wav
+n も モ mo sound/mo.wav
+y みゃ ミャ mya sound/mya.wav
+y みゅ ミュ myu sound/myu.wav
+y みょ ミョ myo sound/myo.wav
