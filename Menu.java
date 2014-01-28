@@ -105,6 +105,9 @@ public class Menu extends JMenuBar
         {
             ex.printStackTrace();
         }
+        
+        // Make sure menus are enabled/disabled correctly.
+        update();
     }
     
     public boolean hasSelection()
@@ -125,6 +128,15 @@ public class Menu extends JMenuBar
         return false;
     }
     
+    public void update()
+    {
+        // Enable items only if "All Sets" is not selected.
+        boolean setsEnabled = !allSets.getState();
+        
+        for (MenuItem item : items)
+            item.setEnabled(setsEnabled);
+    }
+    
     public Deck getSelectedDecks()
     {
         Deck deck = new Deck();
@@ -135,27 +147,11 @@ public class Menu extends JMenuBar
         boolean useDakuten = dakuten.getState();
         boolean useYouon = youon.getState();
         
-        if (allSets.getState())
-        {
-            for (MenuItem item : items)
-            {
-                // Disable item when "All Sets" is selected.
-                item.setEnabled(false);
-                
+        // Get corresponding deck for each item if it is selected.
+        boolean useAll = allSets.getState();
+        for (MenuItem item : items)
+            if (useAll || item.getState())
                 deck.addDeck(item.getDeck(useHiragana, useKatakana, useDakuten, useYouon));
-            }
-        }
-        else
-        {
-            for (MenuItem item : items)
-            {
-                // Make sure item is enabled since "All Sets" is not selected.
-                item.setEnabled(true);
-                
-                if (item.getState())
-                    deck.addDeck(item.getDeck(useHiragana, useKatakana, useDakuten, useYouon));
-            }
-        }
         
         deck.shuffle();
         

@@ -202,6 +202,7 @@ public class Game extends JPanel implements ActionListener
         else if (command.equals(COMMAND_MENU))
         {
             menuChanged = true;
+            menu.update();
             
             // If the screen is blank, enable Next only if there are available cards.
             if (!showQuestion && card == null)
